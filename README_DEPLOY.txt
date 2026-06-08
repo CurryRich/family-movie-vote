@@ -1,13 +1,12 @@
-# Family Movie Selection Tally — v4 Minimal Header
+# Family Movie Selection Tally — v6 Balanced Vote Controls
 
-This version aggressively reduces the top header height.
+This version fixes the spacing issue in the vote control row.
 
 Changes:
-- Top header renamed to compact “Movie Vote”
-- Mobile subtitle hidden
-- Summary cards hidden on mobile
-- Search/sort/export/refresh remain in bottom toolbar
-- Posters start almost immediately after the compact header
+- The plus and minus buttons now have equal spacing from the card borders.
+- The vote control row uses symmetrical columns.
+- The count box has safer minimum width behavior.
+- Mobile spacing is adjusted so the + button no longer crowds the right edge.
 
 Netlify settings:
 - Base directory: leave blank
