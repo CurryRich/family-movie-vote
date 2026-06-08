@@ -1,16 +1,26 @@
-# Family Movie Selection Tally — v7 Fixed Vote Buttons
+# Family Movie Selection Tally — v9 Working Clear All
 
-This version fixes the clipped + button issue.
+This version adds a real Clear All reset flow.
 
-Changes:
-- Vote controls now use compact fixed-width +/- buttons.
-- Count box flexes safely between the buttons.
-- No horizontal clipping in two-column mobile/card layouts.
-- Plus and minus buttons remain visible and tappable.
-- Poster-first UX and Netlify shared voting remain unchanged.
+Frontend:
+- Adds a visible Clear All button in the bottom control dock.
+- Shows compact “votes” label to avoid text clipping.
+- Calls POST /.netlify/functions/votes?clear=1.
+
+Backend:
+- Netlify Function now handles clear=1.
+- It deletes all stored vote event blobs.
+- The shared tally resets to zero for everyone.
 
 Netlify settings:
 - Base directory: leave blank
 - Build command: npm install
 - Publish directory: .
 - Functions: netlify/functions
+
+After deploy, test:
+https://YOUR-SITE.netlify.app/.netlify/functions/votes
+
+To test Clear All manually:
+Send POST to:
+https://YOUR-SITE.netlify.app/.netlify/functions/votes?clear=1
