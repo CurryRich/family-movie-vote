@@ -332,7 +332,7 @@ button.primary{
   align-items:center !important;
   justify-content:center !important;
 }
-.card .info .countBox{
+.card .info .countBox{min-width:72px !important;
   min-width:0 !important;
   max-width:100% !important;
   width:100% !important;
@@ -367,7 +367,7 @@ button.primary{
     border-radius:12px !important;
     font-size:1.35rem !important;
   }
-  .card .info .countBox{
+  .card .info .countBox{min-width:72px !important;
     font-size:.7rem !important;
     padding:7px 2px !important;
     border-radius:12px !important;
@@ -391,7 +391,7 @@ button.primary{
     height:36px !important;
     font-size:1.25rem !important;
   }
-  .card .info .countBox{
+  .card .info .countBox{min-width:72px !important;
     font-size:.66rem !important;
   }
 }
@@ -413,7 +413,7 @@ button.primary{
       <input id="search" placeholder="Search movies..."/>
       <select id="sort"><option value="priority">Original order</option><option value="votes">Most selected</option><option value="year">Year</option><option value="title">Title</option></select>
       <button class="primary" id="exportCsv">Export CSV</button>
-      <button id="refresh">Refresh</button>
+      <button id="refresh">Refresh</button><button id="clearAll">Clear All</button>
     </div>
     <div class="summary" id="summary"></div>
     <div class="progress"><div id="bar" class="bar"></div></div>
@@ -436,5 +436,16 @@ window.addEventListener("scroll", () => {
 document.addEventListener("click", (e) => {
   if (!bottomBar.contains(e.target) && !bottomBar.classList.contains("collapsed")) setDock(false);
 });
-search.oninput=render;sort.onchange=render;refresh.onclick=loadVotes;exportCsv.onclick=downloadCsv;render();loadVotes();
+search.oninput=render;sort.onchange=render;refresh.onclick=loadVotes;exportCsv.onclick=downloadCsv;
+const clearBtn=document.getElementById("clearAll");
+if(clearBtn){
+ clearBtn.onclick=async ()=>{
+   if(!confirm("Clear all movie selections?")) return;
+   try{
+     await fetch("/.netlify/functions/votes?clear=1",{method:"POST"});
+     loadVotes();
+   }catch(e){}
+ };
+}
+render();loadVotes();
 </script></body></html>
