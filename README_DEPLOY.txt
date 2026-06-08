@@ -1,12 +1,13 @@
-# Family Movie Selection Tally — v6 Balanced Vote Controls
+# Family Movie Selection Tally — v7 Fixed Vote Buttons
 
-This version fixes the spacing issue in the vote control row.
+This version fixes the clipped + button issue.
 
 Changes:
-- The plus and minus buttons now have equal spacing from the card borders.
-- The vote control row uses symmetrical columns.
-- The count box has safer minimum width behavior.
-- Mobile spacing is adjusted so the + button no longer crowds the right edge.
+- Vote controls now use compact fixed-width +/- buttons.
+- Count box flexes safely between the buttons.
+- No horizontal clipping in two-column mobile/card layouts.
+- Plus and minus buttons remain visible and tappable.
+- Poster-first UX and Netlify shared voting remain unchanged.
 
 Netlify settings:
 - Base directory: leave blank
