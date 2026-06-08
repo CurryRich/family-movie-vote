@@ -1,19 +1,16 @@
-# Family Movie Selection Tally — Mobile UX Update
+# Family Movie Selection Tally — v4 Minimal Header
 
-This version fixes the UX issue from the oversized sticky header.
+This version aggressively reduces the top header height.
 
 Changes:
-- Header is no longer fixed/sticky.
-- Controls moved to a fixed bottom toolbar.
-- Posters appear much higher on mobile and desktop.
-- Bottom bar includes search, sort, CSV export, refresh, and progress.
-- Shared voting function setup remains the same.
+- Top header renamed to compact “Movie Vote”
+- Mobile subtitle hidden
+- Summary cards hidden on mobile
+- Search/sort/export/refresh remain in bottom toolbar
+- Posters start almost immediately after the compact header
 
 Netlify settings:
 - Base directory: leave blank
 - Build command: npm install
 - Publish directory: .
 - Functions: netlify/functions
-
-After deploy, test:
-https://YOUR-SITE.netlify.app/.netlify/functions/votes
